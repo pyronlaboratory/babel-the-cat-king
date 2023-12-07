@@ -21,6 +21,22 @@ var hero;
 
 //INIT THREE JS, SCREEN AND MOUSE EVENTS
 
+/**
+* @description This function sets up a 3D scene and renderer for the webGL browser
+* canvas with the following actions:
+* 
+* 1/ Initialize scene and camera.
+* 2/ Set rendering context and pixel ratio.
+* 3/ Set canvas dimensions to fit screen size (handle window resize)
+* 4/ Enable shadow maps.
+* 5/ Add event listeners to handle mousemove/touchmove.
+* 
+* @returns { object } The `initScreenAnd3D` function returns nothing (undefined) as
+* it is a function that sets up the screen and 3D elements for a scene. It defines
+* the dimensions of the window (`WIDTH` and `HEIGHT`), creates a scene and a camera
+* with specified positions and view parameters. It also sets up the rendering context
+* and adds event listeners for resizing and mouse/touch movements.
+*/
 function initScreenAnd3D() {
   
   HEIGHT = window.innerHeight;
@@ -58,6 +74,21 @@ function initScreenAnd3D() {
 
 }
 
+/**
+* @description This function updates the rendering dimensions and perspective of the
+* game based on the current window size.
+* 
+* @returns { object } The output of this function is a set of variables with new
+* values that represent the size and orientation of the current browser window:
+* 
+* 	- `HEIGHT` is set to the inner height of the window
+* 	- `WIDTH` is set to the inner width of the window
+* 	- `windowHalfX` is set to half the width of the window
+* 	- `windowHalfY` is set to half the height of the window
+* 
+* The function also updates the renderer and camera matrices with the new window
+* size and aspect ratio.
+*/
 function handleWindowResize() {
   HEIGHT = window.innerHeight;
   WIDTH = window.innerWidth;
@@ -68,10 +99,33 @@ function handleWindowResize() {
   camera.updateProjectionMatrix();
 }
 
+/**
+* @description This function records the position of the cursor (represented by
+* `mousePos`) as the user moves their mouse while the function is active.
+* 
+* @param { object } event - The `event` input parameter is passed as an argument to
+* the function and contains information about the mouse movement event that triggered
+* the function call.
+* 
+* @returns { object } The output of this function is an object literal with two
+* properties: `x` and `y`, each set to the current value of the `clientX` and `clientY`
+* properties of the event object passed as an argument.
+*/
 function handleMouseMove(event) {
   mousePos = {x:event.clientX, y:event.clientY};
 } 
 
+/**
+* @description The given function `handleTouchMove` prevents the default browser
+* behavior for touch moves and captures the current touch position as `mousePos`.
+* 
+* @param {  } event - In the given function `handleTouchMove`, the `event` parameter
+* is an argument passed to the function when it is called. It represents the Touch
+* Move event that is triggered when a touchmove gesture is detected on a touch-enabled
+* device.
+* 
+* @returns { any } The output returned by the `handleTouchMove` function is `undefined`.
+*/
 function handleTouchMove(event) {
   if (event.touches.length == 1) {
     event.preventDefault();
@@ -79,6 +133,21 @@ function handleTouchMove(event) {
   }
 }
 
+/**
+* @description This function creates and adds three lights to the THREE.Scene: a
+* hemisphere light (globalLight), a directional light for shadows (shadowLight), and
+* a back light (backLight).
+* 
+* @returns {  } The function `createLights()` creates three lights and returns nothing
+* (undefined). The lights created are:
+* 
+* 1/ `globalLight` - a hemisphere light with color white (0xffffff) and intensity 0.5.
+* 2/ `shadowLight` - a directional light with color white (0xffffff), intensity 0.9
+* and casting a shadow with darkness 0.2.
+* 3/ `backLight` - a directional light with color white (0xffffff), intensity 0.4.
+* 
+* All three lights are added to the scene using `scene.add()`.
+*/
 function createLights() {
   globalLight = new THREE.HemisphereLight(0xffffff, 0xffffff, .5)
   
@@ -99,6 +168,16 @@ function createLights() {
   scene.add(backLight);
 }
 
+/**
+* @description This function creates a new plane mesh object with dimensions 1000x1000
+* units and sets its material properties and position.
+* 
+* @returns { object } The `createFloor()` function returns a new `THREE.Mesh` object
+* representing a plane with dimensions 1000x1000 units and material color #6ecccc
+* (pale blue). The mesh is rotated 90 degrees counterclockwise around the x-axis and
+* positioned at y=0. Additionally., the function adds the mesh to the scene and
+* enables receiving shadows.
+*/
 function createFloor(){ 
   floor = new THREE.Mesh(new THREE.PlaneBufferGeometry(1000,1000), new THREE.MeshBasicMaterial({color: 0x6ecccc}));
   floor.rotation.x = -Math.PI/2;
@@ -107,11 +186,27 @@ function createFloor(){
   scene.add(floor);
 }
 
+/**
+* @description This function creates a new instance of the `Cat` class and adds it
+* to the scene using the `threeGroup`.
+* 
+* @returns { object } The output returned by the `createHero()` function is an
+* instance of the `Cat` class.
+*/
 function createHero() {
   hero = new Cat();
   scene.add(hero.threeGroup);
 }
 
+/**
+* @description This function creates a new `Ball` object and adds its `threeGroup`
+* object to the scene.
+* 
+* @returns { object } The function `createBall()` creates a new instance of the
+* `Ball` object and adds its `threeGroup` property to the `scene`.
+* 
+* Output: The function returns `ball`, which is an instance of the `Ball` class.
+*/
 function createBall() {
   ball = new Ball();
   scene.add(ball.threeGroup);
@@ -382,6 +477,15 @@ Ball.prototype.receivePower = function(tp){
 
 var t=0;
 
+/**
+* @description This function renders the scene and updates the position of the ball
+* and the hero based on their positions and power transfers between them.
+* 
+* @returns { object } The `loop()` function renders the scene and updates the positions
+* and movements of the hero and the ball based on user input. It returns no output;
+* instead; it updates the values of `t`, `ballPos`, and other variables and schedules
+* another animation frame using `requestAnimationFrame()`.
+*/
 function loop(){
   render();
   
@@ -397,6 +501,16 @@ function loop(){
 }
 
 
+/**
+* @description The provided function 'getBallPos()' calculates the position of a
+* ball (ballPos) based on mouse cursor position and camera position. It uses unproject
+* method to transform screen coordinates into world coordinates. Then it calculates
+* direction vector from camera to the ball and normalizes it to get distance between
+* them.
+* 
+* @returns { object } The function `getBallPos` returns a Vector3 object that
+* represents the position of the ball given the current mouse position and camera position.
+*/
 function getBallPos(){
   var vector = new THREE.Vector3();
 
@@ -412,6 +526,20 @@ function getBallPos(){
   return pos;
 }
 
+/**
+* @description This function is responsible for rendering the scene using the
+* `renderer` object.
+* 
+* @returns {  } Based on the code provided:
+* 
+* The output returned by the `render` function is unitless (i.e., it does not return
+* a number or a specific value).
+* 
+* Here's a concise description of the output:
+* 
+* The `render` function updates the controls (if they exist) and then renders the
+* scene using the renderer and camera. It does not return any value explicitly.
+*/
 function render(){
   if (controls) controls.update();
   renderer.render(scene, camera);
@@ -419,6 +547,18 @@ function render(){
 
 window.addEventListener('load', init, false);
 
+/**
+* @description This function initializes the game by setting up the screen and 3D
+* objects (lights and floor), creating the hero and ball objects and starting the
+* main loop of the game.
+* 
+* @param {  } event - The `event` input parameter is not used or referenced within
+* the `init` function.
+* 
+* @returns { any } The `init` function does not return any value explicitly. However.
+* it performs several actions and initiates various game objects such as lights ,
+* floor , hero and ball . Therefore.
+*/
 function init(event){
   initScreenAnd3D();
   createLights();

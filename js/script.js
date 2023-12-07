@@ -21,22 +21,6 @@ var hero;
 
 //INIT THREE JS, SCREEN AND MOUSE EVENTS
 
-/**
-* @description This function sets up a 3D scene and renderer for the webGL browser
-* canvas with the following actions:
-* 
-* 1/ Initialize scene and camera.
-* 2/ Set rendering context and pixel ratio.
-* 3/ Set canvas dimensions to fit screen size (handle window resize)
-* 4/ Enable shadow maps.
-* 5/ Add event listeners to handle mousemove/touchmove.
-* 
-* @returns { object } The `initScreenAnd3D` function returns nothing (undefined) as
-* it is a function that sets up the screen and 3D elements for a scene. It defines
-* the dimensions of the window (`WIDTH` and `HEIGHT`), creates a scene and a camera
-* with specified positions and view parameters. It also sets up the rendering context
-* and adds event listeners for resizing and mouse/touch movements.
-*/
 function initScreenAnd3D() {
   
   HEIGHT = window.innerHeight;

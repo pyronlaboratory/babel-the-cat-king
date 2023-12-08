@@ -1,4 +1,5 @@
 //THREEJS RELATED VARIABLES 
+
 var scene,
     camera, fieldOfView, aspectRatio, nearPlane, farPlane,
     gobalLight, shadowLight, backLight,

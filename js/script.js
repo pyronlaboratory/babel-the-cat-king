@@ -68,6 +68,14 @@ function initScreenAnd3D() {
 
 }
 
+/**
+* @description This function sets the dimensions of the rendering canvas and updates
+* the camera's projection matrix to fit the new window size.
+* 
+* @returns { object } The `handleWindowResize()` function updates the state of the
+* graphics rendering engine by setting the size of the renderer and the aspect ratio
+* of the camera based on the current inner height and width of the window.
+*/
 function handleWindowResize() {
   HEIGHT = window.innerHeight;
   WIDTH = window.innerWidth;

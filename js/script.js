@@ -86,18 +86,6 @@ function handleWindowResize() {
   camera.updateProjectionMatrix();
 }
 
-/**
-* @description This function records the position of the cursor (represented by
-* `mousePos`) as the user moves their mouse while the function is active.
-* 
-* @param { object } event - The `event` input parameter is passed as an argument to
-* the function and contains information about the mouse movement event that triggered
-* the function call.
-* 
-* @returns { object } The output of this function is an object literal with two
-* properties: `x` and `y`, each set to the current value of the `clientX` and `clientY`
-* properties of the event object passed as an argument.
-*/
 function handleMouseMove(event) {
   mousePos = {x:event.clientX, y:event.clientY};
 } 

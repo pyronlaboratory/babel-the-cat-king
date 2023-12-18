@@ -86,6 +86,17 @@ function handleWindowResize() {
   camera.updateProjectionMatrix();
 }
 
+/**
+* @description This function saves the current mouse position (in client coordinates)
+* into a variable called `mousePos`.
+* 
+* @param { object } event - The `event` parameter is an object containing information
+* about the current event that triggered the function.
+* 
+* @returns { object } The output returned by this function is an object with two
+* properties: `x` and `y`, each property containing the current mouse position (in
+* client coordinates) as a number.
+*/
 function handleMouseMove(event) {
   mousePos = {x:event.clientX, y:event.clientY};
 } 

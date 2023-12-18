@@ -68,21 +68,6 @@ function initScreenAnd3D() {
 
 }
 
-/**
-* @description This function updates the rendering dimensions and perspective of the
-* game based on the current window size.
-* 
-* @returns { object } The output of this function is a set of variables with new
-* values that represent the size and orientation of the current browser window:
-* 
-* 	- `HEIGHT` is set to the inner height of the window
-* 	- `WIDTH` is set to the inner width of the window
-* 	- `windowHalfX` is set to half the width of the window
-* 	- `windowHalfY` is set to half the height of the window
-* 
-* The function also updates the renderer and camera matrices with the new window
-* size and aspect ratio.
-*/
 function handleWindowResize() {
   HEIGHT = window.innerHeight;
   WIDTH = window.innerWidth;

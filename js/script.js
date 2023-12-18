@@ -21,6 +21,16 @@ var hero;
 
 //INIT THREE JS, SCREEN AND MOUSE EVENTS
 
+/**
+* @description This function initializes a 3D scene and sets up the renderer for a
+* WebGL canvas element with the specified dimensions.
+* 
+* @returns { any } The output returned by the `initScreenAnd3D` function is a
+* WebGLRenderer object and a PerspectiveCamera object. The WebGLRenderer is attached
+* to the document's body element using the `appendChild` method and it renders the
+* scene created by the camera. The PerspectiveCamera is created with specific field
+* of view (50), aspect ratio (WIDTH/HEIGHT), near and far plane values.
+*/
 function initScreenAnd3D() {
   
   HEIGHT = window.innerHeight;

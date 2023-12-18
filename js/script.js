@@ -21,14 +21,6 @@ var hero;
 
 //INIT THREE JS, SCREEN AND MOUSE EVENTS
 
-/**
-* @description This function initializes a 3D scene and rendering context using
-* THREE.js library.
-* 
-* @returns {  } The output returned by the `initScreenAnd3D` function is a
-* THREE.WebGLRenderer object and a THREE.PerspectiveCamera object. Additionally ,
-* it sets up the scene , camera and rendering properties.
-*/
 function initScreenAnd3D() {
   
   HEIGHT = window.innerHeight;
@@ -66,14 +58,6 @@ function initScreenAnd3D() {
 
 }
 
-/**
-* @description This function sets the dimensions of the rendering canvas and updates
-* the camera's projection matrix to fit the new window size.
-* 
-* @returns { object } The `handleWindowResize()` function updates the state of the
-* graphics rendering engine by setting the size of the renderer and the aspect ratio
-* of the camera based on the current inner height and width of the window.
-*/
 function handleWindowResize() {
   HEIGHT = window.innerHeight;
   WIDTH = window.innerWidth;

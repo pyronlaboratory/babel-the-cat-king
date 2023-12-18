@@ -21,6 +21,16 @@ var hero;
 
 //INIT THREE JS, SCREEN AND MOUSE EVENTS
 
+/**
+* @description This function initializes a 3D scene and renderer for the web browser
+* using Three.js library. It sets up camera properties like field of view and near/far
+* planes and creates a PerspectiveCamera object. It also sets up rendering options
+* such as antialiasing and pixel ratio.
+* 
+* @returns { any } The `initScreenAnd3D` function creates a THREE.js scene and camera
+* setup for a 3D rendering application. It returns nothing explicitly but sets up
+* the renderer and adds it to the DOM element with ID 'world'.
+*/
 function initScreenAnd3D() {
   
   HEIGHT = window.innerHeight;

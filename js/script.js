@@ -21,6 +21,7 @@ var hero;
 
 //INIT THREE JS, SCREEN AND MOUSE EVENTS
 
+
 function initScreenAnd3D() {
   
   HEIGHT = window.innerHeight;

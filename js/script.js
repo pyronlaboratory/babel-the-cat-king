@@ -21,6 +21,14 @@ var hero;
 
 //INIT THREE JS, SCREEN AND MOUSE EVENTS
 
+/**
+* @description This function initializes a 3D scene and rendering context using
+* THREE.js library.
+* 
+* @returns {  } The output returned by the `initScreenAnd3D` function is a
+* THREE.WebGLRenderer object and a THREE.PerspectiveCamera object. Additionally ,
+* it sets up the scene , camera and rendering properties.
+*/
 function initScreenAnd3D() {
   
   HEIGHT = window.innerHeight;

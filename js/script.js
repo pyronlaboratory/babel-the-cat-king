@@ -20,6 +20,29 @@ var hero;
 
 //INIT THREE JS, SCREEN AND MOUSE EVENTS
 
+/**
+* @description This function sets up a 3D scene and renderer for display on a web
+* page. It creates a PerspectiveCamera and sets its position and LookAt parameters.
+* 
+* @returns { any } The output returned by the `initScreenAnd3D` function is not
+* explicitly defined since it is a function that sets up a WebGL rendering context
+* and creates a scene for a 3D graphics application. However based on its code snippet
+* here's what's going on inside the functions
+* 
+* 1/ It defines three key properties HEIGHT width and windowHalfX which are based
+* on the inner height and width of the current window.
+* 2/ The next several lines create THREE.Scene objects that control how different
+* visual elements are arranged or "scened" within a single image plane like the video
+* game's world shown here:https://3d.typescript.io/6a13c81eb0b2e4d67af92a9ae7372aec
+* 3/It then sets up several other attributes that dictate how objects move within
+* the virtual environment using variables and constant definitions
+* 4/After that It creates three WebGLRenderingContext's to actually display images
+* for each color component asynchronously within this canvas https://threejsfundamentals.org/student/lessons/51130/threejs-renderer-container
+* 5 Finally it defines functions that respond to events from users mice or touches
+* using window resize event listening: This function allows  user resizes are taken
+* into account as far as where elements move when an objects intersects boundaries
+* within their space .
+*/
 function initScreenAnd3D() {
   
   HEIGHT = window.innerHeight;

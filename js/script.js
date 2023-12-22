@@ -64,6 +64,11 @@ function initScreenAnd3D() {
 }
 
 
+/**
+* @description
+* 
+* @returns {  }
+*/
 function handleWindowResize() {
   HEIGHT = window.innerHeight;
   WIDTH = window.innerWidth;
@@ -74,6 +79,13 @@ function handleWindowResize() {
   camera.updateProjectionMatrix();
 }
 
+/**
+* @description
+* 
+* @param {  } event -
+* 
+* @returns {  }
+*/
 function handleMouseMove(event) {
   mousePos = {x:event.clientX, y:event.clientY};
 } 

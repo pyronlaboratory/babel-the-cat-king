@@ -63,14 +63,7 @@ function initScreenAnd3D() {
 
 }
 
-/**
-* @description This function sets the size of the canvas (renderer) and the perspective
-* of the camera based on the window size.
-* 
-* @returns { any } This function returns nothing (undefined) and has no effect on
-* the outside code as it is not doing anything useful but just defining variables
-* with values that can be easily accessed from within the scope of the function.
-*/
+
 function handleWindowResize() {
   HEIGHT = window.innerHeight;
   WIDTH = window.innerWidth;
@@ -81,17 +74,6 @@ function handleWindowResize() {
   camera.updateProjectionMatrix();
 }
 
-/**
-* @description This function saves the current mouse position (in client coordinates)
-* into a variable called `mousePos`.
-* 
-* @param { object } event - The `event` parameter is an object containing information
-* about the current event that triggered the function.
-* 
-* @returns { object } The output returned by this function is an object with two
-* properties: `x` and `y`, each property containing the current mouse position (in
-* client coordinates) as a number.
-*/
 function handleMouseMove(event) {
   mousePos = {x:event.clientX, y:event.clientY};
 } 

@@ -21,16 +21,6 @@ var hero;
 
 //INIT THREE JS, SCREEN AND MOUSE EVENTS
 
-
-/**
-* @description This function sets up a THREE.js scene and camera and renders it using
-* a WebGLRenderer.
-* 
-* @returns { any } The `initScreenAnd3D` function creates a new THREE.js scene and
-* camera setup for rendering a 3D graphics scene within a WebGL renderer on a HTML
-* canvas element with ID 'world'. It sets up the canvas dimensions and aspect ratio
-* and creates a PerspectiveCamera with specified FOV and near/far plane values.
-*/
 function initScreenAnd3D() {
   
   HEIGHT = window.innerHeight;

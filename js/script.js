@@ -8,7 +8,6 @@ var scene,
     controls;
 
 //SCREEN & MOUSE VARIABLES
-
 var HEIGHT, WIDTH, windowHalfX, windowHalfY,
     mousePos = { x:0, y:0 },
     oldMousePos = {x:0, y:0},

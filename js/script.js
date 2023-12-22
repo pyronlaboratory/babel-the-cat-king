@@ -553,3 +553,4 @@ function init(event){
   createBall();
   loop();
 }
+

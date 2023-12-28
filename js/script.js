@@ -21,6 +21,33 @@ var hero;
 //INIT THREE JS, SCREEN AND MOUSE EVENTS
 
 
+/**
+* @description This function initializes a 3D scene and camera view for a WebGLRenderer
+* component. It sets up the dimensions of the rendering canvas (WIDTH and HEIGHT),
+* defines the aspect ratio and field of view of the camera lens; farthest plane
+* distance and near-plane distance are also defined to establish the depth range.
+* This includes positioning the camera so it can render an X-shaped model using a
+* 'lookAt' feature. Additionally equipped with methods that handle user input and
+* make necessary updates based on screen size adjustments like window resizing for
+* mobile touch device handling when necessary while simultaneously tracking mouse
+* movements via event listeners named 'handleWindowResize',  'handleMouseMove',  and
+* 'touchMove.' Ultimately preparing an already established DOM element identified
+* using a container called 'world', with an uploaded rendering component
+* 'WebGLRenderer.domElement'. In conclusion its objective is to initiate all the
+* requirements required establish a functioning scene before entering it on this
+* platform for users; thereby making them ready players from whom will observe or
+* engage gameplay when run time arises if their systems meet system specs as provided
+* by those involved parties interested respectively.
+* 
+* More simply put? This script is about setting up WebGL to handle graphics renderer
+* 3D scene creation on HTML with an updated frame for different window size dimensions
+* including mousedown support events via listener functions and object initialisation
+* set-up for its related canvas. The whole idea revolves around getting users involved
+* once it's ready.
+* 
+* @returns {  } The `initScreenAnd3D` function creates a 3D scene and sets up a WebGL
+* renderer to display it. It also sets up camera and rendering parameters.
+*/
 function initScreenAnd3D() {
   
   HEIGHT = window.innerHeight;

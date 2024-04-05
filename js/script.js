@@ -22,6 +22,11 @@ var hero;
 
 
 
+/**
+ * @description sets up a Three.js scene and renderer for rendering a 3D environment.
+ * It defines camera parameters, positions, and lookAt point, and sets up event
+ * listeners for window resize, mouse move, and touch move.
+ */
 function initScreenAnd3D() {
   
   HEIGHT = window.innerHeight;
@@ -61,6 +66,10 @@ function initScreenAnd3D() {
 
 
 
+/**
+ * @description updates the size and position of the renderer and camera based on the
+ * window's inner height and width, maintaining aspect ratio.
+ */
 function handleWindowResize() {
   HEIGHT = window.innerHeight;
   WIDTH = window.innerWidth;
@@ -71,6 +80,12 @@ function handleWindowResize() {
   camera.updateProjectionMatrix();
 }
 
+/**
+ * @description updates the positions of two variables `mousePos` in client coordinates
+ * with values of `event.clientX` and `event.clientY`.
+ * 
+ * @param { object } event - mouse move event that triggered the function.
+ */
 function handleMouseMove(event) {
   mousePos = {x:event.clientX, y:event.clientY};
 } 

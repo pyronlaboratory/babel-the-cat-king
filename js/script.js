@@ -23,9 +23,7 @@ var hero;
 
 
 /**
- * @description sets up a Three.js scene and renderer for rendering a 3D environment.
- * It defines camera parameters, positions, and lookAt point, and sets up event
- * listeners for window resize, mouse move, and touch move.
+ * @description
  */
 function initScreenAnd3D() {
   
@@ -67,8 +65,7 @@ function initScreenAnd3D() {
 
 
 /**
- * @description updates the size and position of the renderer and camera based on the
- * window's inner height and width, maintaining aspect ratio.
+ * @description
  */
 function handleWindowResize() {
   HEIGHT = window.innerHeight;
@@ -81,26 +78,19 @@ function handleWindowResize() {
 }
 
 /**
- * @description updates the positions of two variables `mousePos` in client coordinates
- * with values of `event.clientX` and `event.clientY`.
+ * @description
  * 
- * @param { object } event - mouse move event that triggered the function.
+ * @param {  } event -
  */
 function handleMouseMove(event) {
   mousePos = {x:event.clientX, y:event.clientY};
 } 
 
 /**
-* @description The given function `handleTouchMove` prevents the default browser
-* behavior for touch moves and captures the current touch position as `mousePos`.
-* 
-* @param {  } event - In the given function `handleTouchMove`, the `event` parameter
-* is an argument passed to the function when it is called. It represents the Touch
-* Move event that is triggered when a touchmove gesture is detected on a touch-enabled
-* device.
-* 
-* @returns { any } The output returned by the `handleTouchMove` function is `undefined`.
-*/
+ * @description
+ * 
+ * @param {  } event -
+ */
 function handleTouchMove(event) {
   if (event.touches.length == 1) {
     event.preventDefault();
@@ -109,20 +99,8 @@ function handleTouchMove(event) {
 }
 
 /**
-* @description This function creates and adds three lights to the THREE.Scene: a
-* hemisphere light (globalLight), a directional light for shadows (shadowLight), and
-* a back light (backLight).
-* 
-* @returns {  } The function `createLights()` creates three lights and returns nothing
-* (undefined). The lights created are:
-* 
-* 1/ `globalLight` - a hemisphere light with color white (0xffffff) and intensity 0.5.
-* 2/ `shadowLight` - a directional light with color white (0xffffff), intensity 0.9
-* and casting a shadow with darkness 0.2.
-* 3/ `backLight` - a directional light with color white (0xffffff), intensity 0.4.
-* 
-* All three lights are added to the scene using `scene.add()`.
-*/
+ * @description
+ */
 function createLights() {
   globalLight = new THREE.HemisphereLight(0xffffff, 0xffffff, .5)
   
@@ -144,15 +122,8 @@ function createLights() {
 }
 
 /**
-* @description This function creates a new plane mesh object with dimensions 1000x1000
-* units and sets its material properties and position.
-* 
-* @returns { object } The `createFloor()` function returns a new `THREE.Mesh` object
-* representing a plane with dimensions 1000x1000 units and material color #6ecccc
-* (pale blue). The mesh is rotated 90 degrees counterclockwise around the x-axis and
-* positioned at y=0. Additionally., the function adds the mesh to the scene and
-* enables receiving shadows.
-*/
+ * @description
+ */
 function createFloor(){ 
   floor = new THREE.Mesh(new THREE.PlaneBufferGeometry(1000,1000), new THREE.MeshBasicMaterial({color: 0x6ecccc}));
   floor.rotation.x = -Math.PI/2;
@@ -162,26 +133,16 @@ function createFloor(){
 }
 
 /**
-* @description This function creates a new instance of the `Cat` class and adds it
-* to the scene using the `threeGroup`.
-* 
-* @returns { object } The output returned by the `createHero()` function is an
-* instance of the `Cat` class.
-*/
+ * @description
+ */
 function createHero() {
   hero = new Cat();
   scene.add(hero.threeGroup);
 }
 
 /**
-* @description This function creates a new `Ball` object and adds its `threeGroup`
-* object to the scene.
-* 
-* @returns { object } The function `createBall()` creates a new instance of the
-* `Ball` object and adds its `threeGroup` property to the `scene`.
-* 
-* Output: The function returns `ball`, which is an instance of the `Ball` class.
-*/
+ * @description
+ */
 function createBall() {
   ball = new Ball();
   scene.add(ball.threeGroup);
@@ -453,14 +414,8 @@ Ball.prototype.receivePower = function(tp){
 var t=0;
 
 /**
-* @description This function renders the scene and updates the position of the ball
-* and the hero based on their positions and power transfers between them.
-* 
-* @returns { object } The `loop()` function renders the scene and updates the positions
-* and movements of the hero and the ball based on user input. It returns no output;
-* instead; it updates the values of `t`, `ballPos`, and other variables and schedules
-* another animation frame using `requestAnimationFrame()`.
-*/
+ * @description
+ */
 function loop(){
   render();
   
@@ -477,15 +432,10 @@ function loop(){
 
 
 /**
-* @description The provided function 'getBallPos()' calculates the position of a
-* ball (ballPos) based on mouse cursor position and camera position. It uses unproject
-* method to transform screen coordinates into world coordinates. Then it calculates
-* direction vector from camera to the ball and normalizes it to get distance between
-* them.
-* 
-* @returns { object } The function `getBallPos` returns a Vector3 object that
-* represents the position of the ball given the current mouse position and camera position.
-*/
+ * @description
+ * 
+ * @returns {  }
+ */
 function getBallPos(){
   var vector = new THREE.Vector3();
 
@@ -502,19 +452,8 @@ function getBallPos(){
 }
 
 /**
-* @description This function is responsible for rendering the scene using the
-* `renderer` object.
-* 
-* @returns {  } Based on the code provided:
-* 
-* The output returned by the `render` function is unitless (i.e., it does not return
-* a number or a specific value).
-* 
-* Here's a concise description of the output:
-* 
-* The `render` function updates the controls (if they exist) and then renders the
-* scene using the renderer and camera. It does not return any value explicitly.
-*/
+ * @description
+ */
 function render(){
   if (controls) controls.update();
   renderer.render(scene, camera);
@@ -523,17 +462,10 @@ function render(){
 window.addEventListener('load', init, false);
 
 /**
-* @description This function initializes the game by setting up the screen and 3D
-* objects (lights and floor), creating the hero and ball objects and starting the
-* main loop of the game.
-* 
-* @param {  } event - The `event` input parameter is not used or referenced within
-* the `init` function.
-* 
-* @returns { any } The `init` function does not return any value explicitly. However.
-* it performs several actions and initiates various game objects such as lights ,
-* floor , hero and ball . Therefore.
-*/
+ * @description
+ * 
+ * @param {  } event -
+ */
 function init(event){
   initScreenAnd3D();
   createLights();
